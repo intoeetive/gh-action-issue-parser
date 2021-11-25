@@ -5,6 +5,10 @@ inputs:
   body:
     required: true
     description: 'issue body'
+  overrides:
+    required: false
+    description: 'additional actions'
+    default: "{}"
 runs:
   using: 'node12'
   main: 'dist/index.js'

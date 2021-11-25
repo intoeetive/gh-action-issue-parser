@@ -1,11 +1,13 @@
 import * as core from '@actions/core'
 import issueParser from 'issue-parser'
 
-const parse = issueParser('github')
-
 async function run(): Promise<void> {
   try {
     const issueBody: string = core.getInput('body')
+
+    const overrides: string = core.getInput('overrides')
+
+    const parse = issueParser('github', JSON.parse(overrides))
 
     const output = parse(issueBody)
 
